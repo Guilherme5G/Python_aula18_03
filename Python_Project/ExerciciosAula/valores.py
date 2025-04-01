@@ -1,4 +1,4 @@
-#Exercicio1
+#Exercicio1 (correto)
 
 n1 = int(input("Digite um valor inicial: "))
 n2 = int(input("Digite um segundo valor: "))
@@ -8,35 +8,54 @@ if n1 > n2:
 else:
     print(f"O mairo numero é {n2:.2f}")
 
-#Exercicio2
+#Exercicio2 (corrigido)
 
 anoNascimento = int(input("Digite seu ano de nascimento: "))
 idade = 2025 - anoNascimento
-if idade >= 16:
-    print("Se dirija a uma urna para votação")
+if idade < 16:
+    print("Proibido votar")
+elif idade < 18 or idade >= 70:
+    print("Você pode votar, mas sem obrigatoriedade")
 else:
-    print("Você nao tem idade necessaria para votar")
+    print("Votar é obrigatório")
 
-#Exercicio3
+if idade < 16:
+    print("Proibido votar")
+elif idade < 18:
+    print("Você pode votar, mas sem obrigatoriedade")
+elif idade < 70:
+    print("Votar é obrigatório")
+else:
+    print("Votar é opcional,velho imundo")
 
-senha = int(input("Digite sua senha: "))
+#Exercicio3 (corrigido)
+senha_fornecida = 1234
+senha = input("Digite sua senha:\n-> ")
 
-if senha == 1234:
-    print("ACESSO PERMITIDO")
+if senha == senha_fornecida:
+    print("ACESSO LIBERADO")
 else:
     print("ACESSO NEGADO")
 
-#Exercicio4
+#Exercicio4 (corrigido)
 
-macas = int(input("Quantas maçãs ira comprar: "))
+#macas = int(input("Quantas maçãs ira comprar: "))
 
-if macas <= 12:
-    valor = macas * 0.25
-else:
-    valor = macas * 0.30
-print(f"O valor total da sua compra é {valor:.2f}")
+#if macas < 12:
+    #valor = macas * 0.30
+#else:
+   #valor = macas * 0.25
+#print(f"O valor total da sua compra é {valor:.2f}")
 
-#Exercicio5
+quantidade = int(input("Diga a quantidade de maçãs: "))
+valor = 0.25
+if quantidade < 12:
+    valor = 0.3
+total = quantidade*valor
+print(f"Você gastará R${valor: .2f} em {quantidade} maçãs, à R${valor} por maçã.")
+
+'''
+#Exercicio5 (correto, porém analisar)
 
 valor1 = int(input("Digite um valor: "))
 valor2 = int(input("Digite um segundo valor: "))
@@ -59,7 +78,22 @@ if valor3 < valor2:
 
 print(f"A ordem crescente dos números é {valor1}, {valor2}, {valor3}")
 
-#Exercicio6
+#segunda forma de fazer a 5
+maior = valor1
+if valor2 > maior:
+    maior = valor2
+if valor3 > maior:
+    maior = valor3 
+    
+menor = valor1
+if valor2 < menor:
+    menor = valor2 
+if valor3 < menor:
+    menor = valor3 
+meio = valor1 + valor2 + valor3 - menor - maior
+print(a, b, c)
+
+#Exercicio6 ( corrigido )
 
 altura = float(input("Insira sua altura em metros: "))
 genero = input("Qual seu gênero: ")
@@ -68,31 +102,36 @@ if genero == "masculino":
     peso = (altura * 72.7) - 58
 else:
     peso = (altura * 62.1) - 44.7
+print(f"O seu peso ideal é {peso:.2f}")
 
+altura = float(input("Insira sua altura em metros: "))
+genero = input("Qual seu gênero: ")
+peso = (altura * 62.1) - 44.7
+if genero == "masculino":
+    peso = (altura * 72.7) - 58
 print(f"O seu peso ideal é {peso:.2f}")
 
 
-#Exercicio7 e 8
+#Exercicio7 e 8 (super corrigido!!!)
 
-numlados = int(input("Digite a quantidade de lados: "))
-medidalados = int(input("Digite a medida dos lados: "))
-
-if numlados <= 3:
+numlados = int(input("Digite a quantidade de lados:\n->"))
+if numlados < 3:
     print("Não é um polígono")
-if numlados == 3:
-    print("Triângulo")
-elif numlados == 4:
-    print("Quadrado")
-elif numlados == 5:
-    print("Pentágono")
+elif numlados > 5:
+    print("Polígono nao identificado")
 else:
-    print("Poligono nao identificado")
+    medidalados = int(input("Digite a medida dos lados:\n->"))
+    perimetro = numlados*medidalados
+    if numlados == 3:
+        forma = "Triangulo"
+    elif numlados == 4:
+        forma = "Quadrado"
+    else:
+        forma = "Pentágono"
+    print(f"É um {forma} de perímetro {perimetro}")
 
-print(f"O seu perimetro é {numlados * medidalados}")
 
-
-#Exercicio9
-
+#Exercicio9 (Correto)
 valor1 = int(input("Digite um valor: "))
 valor2 = int(input("Digite um segundo valor: "))
 valor3 = int(input("Digite um terceiro valor: "))
@@ -101,35 +140,36 @@ maiorvalor = valor1
 
 if valor2 > maiorvalor:
     maiorvalor = valor2
-elif valor3 > maiorvalor:
+if valor3 > maiorvalor:
     maiorvalor = valor3
 
 print(f"O maior valor entre estes numeros é {maiorvalor}")
 
-#Exercicio10
+#Exercicio10 ( corrigido )
 
-medidaLado1 = int(input("Qual o valor do lado 1: "))
-medidaLado2 = int(input("Qual o valor do lado 2: "))
-medidaLado3 = int(input("Qual o valor do lado 3: "))
+a = int(input("Qual o valor do lado 1: "))
+b = int(input("Qual o valor do lado 2: "))
+c = int(input("Qual o valor do lado 3: "))
 
-if medidalados == 3:
-    print("È um triangulo Equilátero")
-elif medidalados == 2:
-    print("È um triangulo Isóscele")
+if a == b and a == c:
+    print("Equilatero")
+elif a == b or a == c or c == b:
+    print("Isósceles")
 else:
-    print("È um triangulo Escaleno")
+    print("Escaleno")
 
-
-#Exercicio11
+#Exercicio11 (corrigida)
 
 ang1 = int(input("Qual o valor do primeiro ângulo: "))
 ang2 = int(input("Qual o valor do segundo ângulo: "))
 ang3 = int(input("Qual o valor do terceiro ângulo: "))
-
-if ang1 == 90 or ang2 == 90 or ang3 == 90:
-    print("È um triangulo Retângulo")
-elif ang1 > 90 and ang2 > 90 and ang3 > 90:
-    print("È um triangulo Obtusangulo")
+if a+b+c == 180:
+    if ang1 == 90 or ang2 == 90 or ang3 == 90:
+        print("È um triangulo Retângulo")
+    elif ang1 > 90 and ang2 > 90 and ang3 > 90:
+        print("È um triangulo Obtusangulo")
+    else:
+        print("È um triangulo Acutângulo")
 else:
-    print("È um triangulo Acutângulo")
-
+    print("Não é um triangulo")
+'''
